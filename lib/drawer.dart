@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:initial_app/home.dart';
+import 'package:initial_app/profilo.dart';
 
 class AppDrawer extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
@@ -13,14 +15,7 @@ class AppDrawer extends StatefulWidget {
 }
 
 class _AppDrawerState extends State<AppDrawer> {
-  void _onItemTap(BuildContext context, String itemName) {
-    Navigator.pop(context); // Close the drawer
-    widget.navigatorKey.currentState?.push(
-      MaterialPageRoute(
-        builder: (context) => widget.drawerItems[itemName]!,
-      ),
-    );
-  }
+  var currentPage = DrawerSections.homepage;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +65,12 @@ class _AppDrawerState extends State<AppDrawer> {
                             color: Colors
                                 .white, // Replace with your desired text color
                           )),
-                      onTap: () => _onItemTap(context, 'Profilo'),
+                      onTap: () {
+                        setState(() {
+                          currentPage = DrawerSections.profile;
+                        });
+                        // Handle tap for Sub-Item 1
+                      },
                     ),
                   ),
                   Container(
@@ -146,4 +146,17 @@ class _AppDrawerState extends State<AppDrawer> {
       ),
     );
   }
+
+  Widget _buildBody() {
+    switch (currentPage) {
+      case DrawerSections.homepage:
+        return HomeScreenContent();
+      case DrawerSections.profile:
+        return ProfilePage();
+      default:
+        return Container(); // Handle other indices if needed
+    }
+  }
 }
+
+enum DrawerSections { homepage, profile }
