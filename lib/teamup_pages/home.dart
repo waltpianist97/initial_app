@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'settings.dart';
 import 'drawer.dart';
 import "profilo.dart";
 
@@ -68,8 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
     switch (myIndex) {
       case 0:
         return HomeScreenContent();
-      case 1:
-        return SettingsScreen();
       default:
         return Container(); // Handle other indices if needed
     }

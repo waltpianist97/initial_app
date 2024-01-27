@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:initial_app/home.dart';
-import 'package:initial_app/profilo.dart';
+import 'package:initial_app/teamup_pages/home.dart';
+import 'package:initial_app/teamup_pages/profilo.dart';
 
 class AppDrawer extends StatefulWidget {
   final GlobalKey<NavigatorState> navigatorKey;
