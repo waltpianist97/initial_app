@@ -171,6 +171,7 @@ class NavigationDrawerWidget extends StatelessWidget {
       leading: Icon(icon, color: color),
       title: Text(text, style: TextStyle(color: color)),
       hoverColor: hoverColor,
+      tileColor: Color.fromRGBO(0, 0, 0, 0.5),
       onTap: onClicked,
     );
   }
@@ -185,6 +186,7 @@ class NavigationDrawerWidget extends StatelessWidget {
     const hoverColor = Colors.white70;
 
     return ExpansionTile(
+      collapsedIconColor: Color.fromRGBO(0, 0, 0, 0.5),
       title: Row(
         children: [
           Icon(icon, color: color),

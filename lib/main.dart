@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:initial_app/widget/navigation_bottom_bar_widget.dart';
 import 'widget/button_widget.dart';
 import 'widget/navigation_drawer_widget.dart';
 
@@ -52,5 +53,6 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
         ),
+        bottomNavigationBar: NavigationBottomBarWidget(),
       );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:initial_app/widget/navigation_drawer_widget.dart";
+import "package:initial_app/widget/navigation_bottom_bar_widget.dart";
 
 class Squadra extends StatelessWidget {
   final String squadraName;
@@ -14,5 +15,6 @@ class Squadra extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.green,
         ),
+        bottomNavigationBar: NavigationBottomBarWidget(),
       );
 }
