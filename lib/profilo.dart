@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
-class SettingsScreen extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Profile'),
+      ),
       body: Center(
         child: Text(
-          'Welcome to the Settings Screen!',
+          'This is the profile page.',
           style: TextStyle(fontSize: 24),
         ),
       ),
