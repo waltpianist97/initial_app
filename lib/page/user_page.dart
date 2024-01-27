@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:initial_app/page/people_page.dart';
+import 'package:initial_app/page/favourites_page.dart';
 import "package:initial_app/widget/navigation_drawer_widget.dart";
+import "package:initial_app/widget/navigation_bottom_bar_widget.dart";
 
 class UserPage extends StatelessWidget {
   final String name;
   final String urlImage;
+  final Map<String, Widget> pages = {
+    "People": PeoplePage(),
+    "Favourites": FavouritesPage(),
+  };
 
-  const UserPage({
+  UserPage({
     Key? key,
     required this.name,
     required this.urlImage,
@@ -25,5 +32,6 @@ class UserPage extends StatelessWidget {
           height: double.infinity,
           fit: BoxFit.cover,
         ),
+        bottomNavigationBar: NavigationBottomBarWidget(pages: pages),
       );
 }
