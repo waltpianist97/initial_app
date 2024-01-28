@@ -10,22 +10,26 @@ Future main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'Navigation Drawer';
+  static const String title = 'Navigation Drawer';
+
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: title,
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: MainPage(),
+        home: const MainPage(),
       );
 }
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -33,15 +37,15 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
-        drawer: NavigationDrawerWidget(),
+        drawer: const NavigationDrawerWidget(),
         // endDrawer: NavigationDrawerWidget(),
         appBar: AppBar(
-          title: Text(MyApp.title),
+          title: const Text(MyApp.title),
         ),
         body: Builder(
           builder: (context) => Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.symmetric(horizontal: 32),
+            padding: const EdgeInsets.symmetric(horizontal: 32),
             child: ButtonWidget(
               icon: Icons.open_in_new,
               text: 'Open Drawer',

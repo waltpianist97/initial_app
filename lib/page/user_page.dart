@@ -13,7 +13,7 @@ class UserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        drawer: NavigationDrawerWidget(),
+        drawer: const NavigationDrawerWidget(),
         appBar: AppBar(
           backgroundColor: Colors.pink,
           title: Text(name),

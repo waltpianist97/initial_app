@@ -4,11 +4,11 @@ import "package:initial_app/widget/navigation_drawer_widget.dart";
 class Squadra extends StatelessWidget {
   final String squadraName;
 
-  Squadra({required this.squadraName});
+  const Squadra({super.key, required this.squadraName});
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        drawer: NavigationDrawerWidget(),
+        drawer: const NavigationDrawerWidget(),
         appBar: AppBar(
           title: Text('Squadra $squadraName'),
           centerTitle: true,

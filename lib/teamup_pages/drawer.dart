@@ -150,9 +150,9 @@ class _AppDrawerState extends State<AppDrawer> {
   Widget _buildBody() {
     switch (currentPage) {
       case DrawerSections.homepage:
-        return HomeScreenContent();
+        return const HomeScreenContent();
       case DrawerSections.profile:
-        return ProfilePage();
+        return const ProfilePage();
       default:
         return Container(); // Handle other indices if needed
     }

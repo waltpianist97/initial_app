@@ -14,8 +14,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
   final Map<String, Widget> drawerItems = {
-    'Home': HomeScreenContent(),
-    'Profilo': ProfilePage(),
+    'Home': const HomeScreenContent(),
+    'Profilo': const ProfilePage(),
     // Add more items as needed
   };
   @override
@@ -23,10 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My TeamUp Account'),
+          title: const Text('My TeamUp Account'),
           actions: [
             IconButton(
-              icon: Icon(Icons.exit_to_app),
+              icon: const Icon(Icons.exit_to_app),
               onPressed: () {
                 // Implement your logout logic here
                 // For example, you can show a dialog or navigate to the login screen
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildBody() {
     switch (myIndex) {
       case 0:
-        return HomeScreenContent();
+        return const HomeScreenContent();
       default:
         return Container(); // Handle other indices if needed
     }
@@ -74,9 +74,11 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class HomeScreenContent extends StatelessWidget {
+  const HomeScreenContent({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Welcome to the Home Screen!',
         style: TextStyle(fontSize: 24),
