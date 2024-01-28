@@ -8,9 +8,9 @@ class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
-    final name = 'Sarah Abs';
-    final email = 'sarah@abs.com';
-    final image = "assets/picture.jpeg";
+    const name = 'Sarah Abs';
+    const email = 'sarah@abs.com';
+    const image = "assets/picture.jpeg";
     return Drawer(
       child: Container(
         decoration: const BoxDecoration(
