@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:initial_app/widget/navigation_bottom_bar_widget.dart';
-import 'widget/button_widget.dart';
-import 'widget/navigation_drawer_widget.dart';
+import 'package:initial_app/page/home_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +13,7 @@ Future main() async {
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'Navigation Drawer';
+  static final String title = 'La tua home';
 
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -33,26 +31,5 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   @override
-  Widget build(BuildContext context) => Scaffold(
-        drawer: NavigationDrawerWidget(),
-        // endDrawer: NavigationDrawerWidget(),
-        appBar: AppBar(
-          title: Text(MyApp.title),
-        ),
-        body: Builder(
-          builder: (context) => Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            child: ButtonWidget(
-              icon: Icons.open_in_new,
-              text: 'Open Drawer',
-              onClicked: () {
-                Scaffold.of(context).openDrawer();
-                // Scaffold.of(context).openEndDrawer();
-              },
-            ),
-          ),
-        ),
-        bottomNavigationBar: NavigationBottomBarWidget(),
-      );
+  Widget build(BuildContext context) => HomePage();
 }

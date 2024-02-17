@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:initial_app/page/home_page.dart';
 import 'package:initial_app/page/people_page.dart';
 import 'package:initial_app/page/favourites_page.dart';
 
@@ -23,6 +24,10 @@ class _NavigationBottomBarWidgetState extends State<NavigationBottomBarWidget> {
       currentIndex: _selectedIndex,
       items: [
         BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
           icon: Icon(Icons.people),
           label: 'People',
         ),
@@ -46,10 +51,15 @@ class _NavigationBottomBarWidgetState extends State<NavigationBottomBarWidget> {
     switch (index) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PeoplePage(),
+          builder: (context) => HomePage(),
         ));
         break;
       case 1:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => PeoplePage(),
+        ));
+        break;
+      case 2:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => FavouritesPage(),
         ));

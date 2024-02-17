@@ -3,6 +3,7 @@ import 'package:initial_app/page/favourites_page.dart';
 import 'package:initial_app/page/people_page.dart';
 import 'package:initial_app/page/user_page.dart';
 import 'package:initial_app/page/squadra_page.dart';
+import 'package:initial_app/page/home_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -39,31 +40,25 @@ class NavigationDrawerWidget extends StatelessWidget {
                 padding: padding,
                 child: Column(
                   children: [
-                    const SizedBox(height: 12),
-                    buildSearchField(),
+                    //const SizedBox(height: 12),
+                    //buildSearchField(),
                     const SizedBox(height: 24),
+                    buildMenuItem(
+                      text: 'Home page',
+                      icon: Icons.home,
+                      onClicked: () => selectedItem(context, HomePage()),
+                    ),
+                    const SizedBox(height: 16),
                     buildMenuItem(
                       text: 'People',
                       icon: Icons.people,
-                      onClicked: () => selectedItem(context, 0),
+                      onClicked: () => selectedItem(context, PeoplePage()),
                     ),
                     const SizedBox(height: 16),
                     buildMenuItem(
                       text: 'Favourites',
                       icon: Icons.favorite_border,
-                      onClicked: () => selectedItem(context, 1),
-                    ),
-                    const SizedBox(height: 16),
-                    buildMenuItem(
-                      text: 'Workflow',
-                      icon: Icons.workspaces_outline,
-                      onClicked: () => selectedItem(context, 2),
-                    ),
-                    const SizedBox(height: 16),
-                    buildMenuItem(
-                      text: 'Updates',
-                      icon: Icons.update,
-                      onClicked: () => selectedItem(context, 3),
+                      onClicked: () => selectedItem(context, FavouritesPage()),
                     ),
                     const SizedBox(height: 16),
                     buildMenuExpandedItem(
@@ -76,12 +71,14 @@ class NavigationDrawerWidget extends StatelessWidget {
                         buildMenuItem(
                           text: 'team la bomba',
                           icon: Icons.notifications_outlined,
-                          onClicked: () => selectedItem(context, 5),
+                          onClicked: () => selectedItem(
+                              context, Squadra(squadraName: "team la bomba")),
                         ),
                         buildMenuItem(
                           text: 'team la bamba',
                           icon: Icons.notifications_outlined,
-                          onClicked: () => selectedItem(context, 6),
+                          onClicked: () => selectedItem(
+                              context, Squadra(squadraName: "team la bomba")),
                         ),
                         // Add more sub-items as needed
                       ],
@@ -105,27 +102,27 @@ class NavigationDrawerWidget extends StatelessWidget {
       InkWell(
         onTap: onClicked,
         child: Container(
-          padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+          padding: padding.add(const EdgeInsets.symmetric(vertical: 40)),
           child: Row(
             children: [
               CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage)),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     name,
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: const TextStyle(fontSize: 20, color: Colors.black),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     email,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: const TextStyle(fontSize: 14, color: Colors.black),
                   ),
                 ],
               ),
-              Spacer(),
-              CircleAvatar(
+              const Spacer(),
+              const CircleAvatar(
                 radius: 24,
                 backgroundColor: Color.fromRGBO(30, 60, 168, 1),
                 child: Icon(Icons.add_comment_outlined, color: Colors.white),
@@ -136,15 +133,16 @@ class NavigationDrawerWidget extends StatelessWidget {
       );
 
   Widget buildSearchField() {
-    final color = Colors.white;
+    const color = Colors.white;
 
     return TextField(
-      style: TextStyle(color: color),
+      style: const TextStyle(color: color),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         hintText: 'Search',
-        hintStyle: TextStyle(color: color),
-        prefixIcon: Icon(Icons.search, color: color),
+        hintStyle: const TextStyle(color: color),
+        prefixIcon: const Icon(Icons.search, color: color),
         filled: true,
         fillColor: Colors.white12,
         enabledBorder: OutlineInputBorder(
@@ -164,14 +162,14 @@ class NavigationDrawerWidget extends StatelessWidget {
     required IconData icon,
     VoidCallback? onClicked,
   }) {
-    final color = Colors.white;
-    final hoverColor = Colors.white70;
+    const color = Colors.white;
+    const hoverColor = Colors.white70;
 
     return ListTile(
       leading: Icon(icon, color: color),
       title: Text(text, style: TextStyle(color: color)),
       hoverColor: hoverColor,
-      tileColor: Color.fromRGBO(0, 0, 0, 0.5),
+      tileColor: const Color.fromRGBO(0, 0, 0, 0.5),
       onTap: onClicked,
     );
   }
@@ -183,15 +181,16 @@ class NavigationDrawerWidget extends StatelessWidget {
     List<Widget>? subItems,
   }) {
     const color = Colors.white;
-    const hoverColor = Colors.white70;
 
     return ExpansionTile(
-      collapsedIconColor: Color.fromRGBO(0, 0, 0, 0.5),
+      collapsedBackgroundColor: Color.fromRGBO(0, 0, 0, 0.5),
+      backgroundColor: Color.fromRGBO(0, 0, 0, 0.5),
+      collapsedIconColor: const Color.fromRGBO(0, 0, 0, 0.5),
       title: Row(
         children: [
           Icon(icon, color: color),
-          SizedBox(width: 8), // Adjust the spacing between icon and text
-          Text(text, style: TextStyle(color: color)),
+          const SizedBox(width: 8), // Adjust the spacing between icon and text
+          Text(text, style: const TextStyle(color: color)),
         ],
       ),
       children: subItems ?? [], // Use provided subItems or an empty list
@@ -203,34 +202,10 @@ class NavigationDrawerWidget extends StatelessWidget {
     );
   }
 
-  void selectedItem(BuildContext context, int index) {
+  void selectedItem(BuildContext context, Widget page) {
     Navigator.of(context).pop();
-
-    switch (index) {
-      case 0:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PeoplePage(),
-        ));
-        break;
-      case 1:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => FavouritesPage(),
-        ));
-        break;
-      case 5:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Squadra(
-            squadraName: "Team la bomba",
-          ),
-        ));
-        break;
-      case 6:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => Squadra(
-            squadraName: "Team la bamba",
-          ),
-        ));
-        break;
-    }
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => page,
+    ));
   }
 }
