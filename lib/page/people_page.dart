@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:initial_app/widget/navigation_drawer_widget.dart";
+import "package:initial_app/widget/navigation_bottom_bar_widget.dart";
 
 class PeoplePage extends StatelessWidget {
   @override
@@ -10,5 +11,6 @@ class PeoplePage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.green,
         ),
+        bottomNavigationBar: NavigationBottomBarWidget(),
       );
 }
